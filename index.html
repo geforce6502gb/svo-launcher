@@ -3,154 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVO Launcher - Идеальная сборка</title>
-    <!-- Подключаем красивый шрифт -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>SVO Pack — Официальный сайт</title>
     <style>
-        * {
+        /* Общие стили в темных тонах лаунчера */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1A1B1C;
+            color: #FFFFFF;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-        body {
-            background-color: #121417; /* Темный фон, как в лаунчере */
-            color: #ffffff;
-            line-height: 1.6;
-        }
-        header {
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: rgba(26, 28, 32, 0.9);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            color: #3b82f6; /* Синий цвет акцента */
-        }
-        .hero {
-            height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Контейнер сайта */
+        .container {
+            max-width: 900px;
+            width: 90%;
             text-align: center;
-            padding: 0 20px;
-            background: radial-gradient(circle at center, #1f2329 0%, #121417 100%);
+            padding: 40px 20px;
         }
+
+        /* Анимированный заголовок (эффект Пульсации) */
         h1 {
-            font-size: 64px;
-            font-weight: 900;
-            margin-bottom: 20px;
+            font-size: 3rem;
+            margin-bottom: 10px;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: pulse-animation 3s infinite ease-in-out;
         }
-        h1 span { color: #3b82f6; }
+
         p.subtitle {
-            font-size: 20px;
             color: #aaaaaa;
+            font-size: 1.2rem;
             margin-bottom: 40px;
-            max-width: 600px;
         }
+
+        /* Сетка для твоих фотографий */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Стиль для картинок с закруглением как в лаунчере */
+        .gallery-item {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 24px; /* Фирменное мягкое закругление */
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Большая геймерская кнопка скачать */
         .download-btn {
-            background-color: #3b82f6;
-            color: white;
+            display: inline-block;
+            background-color: #3b82f6; /* Твой синий цвет */
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: bold;
             text-decoration: none;
-            padding: 20px 40px;
-            font-size: 20px;
-            font-weight: 700;
-            border-radius: 15px;
-            transition: 0.3s;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            padding: 18px 50px;
+            border-radius: 16px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            transition: all 0.2s ease;
+            cursor: pointer;
         }
+
         .download-btn:hover {
             background-color: #2563eb;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
         }
-        .features {
-            padding: 100px 20px;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            background-color: #1a1c20;
+
+        .download-btn:active {
+            transform: translateY(1px);
         }
-        .feature-card {
-            background-color: #121417;
-            padding: 40px;
-            border-radius: 20px;
-            width: 300px;
-            text-align: center;
-            border: 1px solid #2b2d31;
-            transition: 0.3s;
+
+        /* Магия анимации пульсации для текста */
+        @keyframes pulse-animation {
+            0% { color: #FFFFFF; }
+            50% { color: #3b82f6; } /* Плавно переливается в синий */
+            100% { color: #FFFFFF; }
         }
-        .feature-card:hover {
-            border-color: #3b82f6;
-            transform: translateY(-10px);
-        }
-        .feature-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-        .feature-card p {
-            color: #aaaaaa;
-            font-size: 15px;
-        }
-        .icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
+
         footer {
-            text-align: center;
-            padding: 30px;
-            background-color: #0d0f12;
-            color: #666;
+            margin-top: auto;
+            padding: 20px;
+            color: #555555;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">SVO Launcher</div>
-    </header>
+    <div class="container">
+        <h1>SVO PACK</h1>
+        <p class="subtitle">Уникальная милитари сборка Minecraft. Готовься к бою!</p>
 
-    <section class="hero">
-        <h1>Сборка <span>твоей мечты</span></h1>
-        <p class="subtitle">Удобный лаунчер с автоматическими обновлениями, оптимизированной сборкой и кастомизацией. Начни играть в один клик.</p>
-        
-        <!-- ВАЖНО: Вставь ссылку на свой .exe файл вместо решетки # ниже -->
-        <a href="https://www.dropbox.com/scl/fi/q8rl77v4cidsnll9iyrvy/SVO.exe?rlkey=sokgz9ji2l2f2y7bko0ekvbrm&st=o9edphmi&dl=1" class="download-btn">СКАЧАТЬ ДЛЯ WINDOWS</a>
-        <p style="margin-top: 15px; color: #666; font-size: 14px;">Версия 1.0 | Вес: ~200 МБ</p>
-    </section>
+        <div class="gallery">
+            <img src="photo1.png" alt="Зона боевых действий" class="gallery-item">
+            <img src="photo2.webp" alt="Солдат" class="gallery-item">
+        </div>
 
-    <section class="features">
-        <div class="feature-card">
-            <div class="icon">🚀</div>
-            <h3>Умные обновления</h3>
-            <p>Забудь про ручную установку модов. Лаунчер сам скачает и установит последнюю версию сборки при запуске.</p>
-        </div>
-        <div class="feature-card">
-            <div class="icon">🔐</div>
-            <h3>Ely.by Интеграция</h3>
-            <p>Удобный и безопасный вход в игру через аккаунт Ely.by. Твои данные надежно защищены.</p>
-        </div>
-        <div class="feature-card">
-            <div class="icon">🎨</div>
-            <h3>Кастомизация</h3>
-            <p>Меняй фоны, цвета текста и интерфейса прямо в настройках лаунчера под свое настроение.</p>
-        </div>
-    </section>
+        <a href="https://www.dropbox.com/scl/fi/q8rl77v4cidsnll9iyrvy/SVO.exe?rlkey=sokgz9ji2l2f2y7bko0ekvbrm&st=o9edphmi&dl=1" class="download-btn">Скачать Лаунчер</a>
+    </div>
 
     <footer>
-        <p>© 2026 SVO Launcher. Создано для комфортной игры.</p>
+        &copy; 2026 SVO Launcher. Создано Pidoras Entertainment. 
     </footer>
 
 </body>

@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SVO Pack — Официальный сайт</title>
     <style>
-        /* Общие стили в темных тонах лаунчера */
+        /* Общие стили и фоновое изображение */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1A1B1C;
             color: #FFFFFF;
             margin: 0;
             padding: 0;
@@ -16,72 +15,134 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            
+            /* Установка photo1.png как полноэкранного фона */
+            background: linear-gradient(rgba(26, 27, 28, 0.85), rgba(26, 27, 28, 0.95)), url('photo1.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         /* Контейнер сайта */
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             width: 90%;
+            padding: 40px 0;
+        }
+
+        /* Шапка сайта */
+        header {
             text-align: center;
-            padding: 40px 20px;
-        }
-
-        /* Анимированный заголовок (эффект Пульсации) */
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: pulse-animation 3s infinite ease-in-out;
-        }
-
-        p.subtitle {
-            color: #aaaaaa;
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-        }
-
-        /* Сетка для твоих фотографий */
-        .gallery {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
             margin-bottom: 50px;
         }
 
-        @media (max-width: 600px) {
-            .gallery {
+        h1 {
+            font-size: 3.5rem;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: pulse-animation 3s infinite ease-in-out;
+        }
+
+        .subtitle {
+            color: #cccccc;
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        /* Информационные блоки (карточки) */
+        .card {
+            background-color: rgba(26, 27, 28, 0.85); /* Полупрозрачный темный фон */
+            border: 1px solid rgba(59, 130, 246, 0.2); /* Едва заметная синяя рамка */
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px); /* Размытие фона за карточкой */
+        }
+
+        h2 {
+            color: #3b82f6; /* Твой синий цвет для подзаголовков */
+            font-size: 1.8rem;
+            margin-top: 0;
+            text-transform: uppercase;
+            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+            padding-bottom: 8px;
+        }
+
+        /* Сетка для блока "О сборке" (текст + фото) */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Стиль для картинок с закруглением как в лаунчере */
-        .gallery-item {
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            text-align: left;
+        }
+
+        .about-text ul {
+            padding-left: 20px;
+        }
+
+        .about-text li {
+            margin-bottom: 10px;
+        }
+
+        /* Вторая картинка внутри блока */
+        .side-img {
             width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 24px; /* Фирменное мягкое закругление */
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
-        .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+        /* Таблица системных требований */
+        .req-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            text-align: left;
         }
 
-        /* Большая геймерская кнопка скачать */
+        .req-table th, .req-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .req-table th {
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        /* Секция скачивания */
+        .download-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        /* Огромная кнопка скачать */
         .download-btn {
             display: inline-block;
-            background-color: #3b82f6; /* Твой синий цвет */
+            background-color: #3b82f6;
             color: #ffffff;
-            font-size: 1.5rem;
+            font-size: 1.7rem;
             font-weight: bold;
             text-decoration: none;
-            padding: 18px 50px;
+            padding: 20px 60px;
             border-radius: 16px;
             text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.5);
             transition: all 0.2s ease;
             cursor: pointer;
         }
@@ -89,44 +150,96 @@
         .download-btn:hover {
             background-color: #2563eb;
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.7);
         }
 
         .download-btn:active {
             transform: translateY(1px);
         }
 
-        /* Магия анимации пульсации для текста */
+        /* Анимация пульсации заголовка */
         @keyframes pulse-animation {
             0% { color: #FFFFFF; }
-            50% { color: #3b82f6; } /* Плавно переливается в синий */
+            50% { color: #3b82f6; }
             100% { color: #FFFFFF; }
         }
 
         footer {
-            margin-top: auto;
-            padding: 20px;
-            color: #555555;
+            text-align: center;
+            padding: 30px;
+            color: #666666;
             font-size: 0.9rem;
+            background-color: rgba(26, 27, 28, 0.9);
+            width: 100%;
+            box-sizing: border-box;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>SVO PACK</h1>
-        <p class="subtitle">Уникальная милитари сборка Minecraft. Готовься к бою!</p>
+        <!-- Шапка -->
+        <header>
+            <h1>SVO PACK</h1>
+            <p class="subtitle">Добро пожаловать на передовую Minecraft</p>
+        </header>
 
-        <div class="gallery">
-            <img src="photo1.png" alt="Зона боевых действий" class="gallery-item">
-            <img src="photo2.webp" alt="Солдат" class="gallery-item">
+        <!-- Блок 1: О сборке -->
+        <div class="card about-section">
+            <div class="about-text">
+                <h2>О модификации</h2>
+                <p><strong>SVO Pack</strong> — это бескомпромиссная военно-техническая сборка, которая полностью переосмысляет привычный геймплей Майнкрафта, превращая его в зону тактических столкновений.</p>
+                <ul>
+                    <li><strong>Огнестрельное оружие:</strong> Огромный арсенал проработанных автоматов, пистолетов и снайперских винтовок с реалистичной отдачей и кастомизацией.</li>
+                    <li><strong>Военная техника:</strong> Управляй танками, вертолетами и бронеавтомобилями для сокрушения баз противника.</li>
+                    <li><strong>Выживание:</strong> Продвинутая система медицины, новые виды брони и улучшенный интеллект мобов не дадут расслабиться.</li>
+                </ul>
+            </div>
+            <div>
+                <img src="photo2.webp" alt="SVO Боец" class="side-img">
+            </div>
         </div>
 
-        <a href="https://www.dropbox.com/scl/fi/q8rl77v4cidsnll9iyrvy/SVO.exe?rlkey=sokgz9ji2l2f2y7bko0ekvbrm&st=o9edphmi&dl=1" class="download-btn">Скачать Лаунчер</a>
+        <!-- Блок 2: Системные требования -->
+        <div class="card">
+            <h2>Системные требования</h2>
+            <table class="req-table">
+                <tr>
+                    <th>Параметр</th>
+                    <th>Минимум</th>
+                    <th>Рекомендуется</th>
+                </tr>
+                <tr>
+                    <td>Оперативная память</td>
+                    <td>4 ГБ (выделенной в лаунчере)</td>
+                    <td>6-8 ГБ и более</td>
+                </tr>
+                <tr>
+                    <td>Процессор</td>
+                    <td>Intel Core i3 / AMD Ryzen 3</td>
+                    <td>Intel Core i5 / AMD Ryzen 5</td>
+                </tr>
+                <tr>
+                    <td>Видеокарта</td>
+                    <td>NVIDIA GTX 1050 / AMD RX 560</td>
+                    <td>NVIDIA GTX 1660 / AMD RX 580</td>
+                </tr>
+                <tr>
+                    <td>Авторизация</td>
+                    <td colspan="2">Требуется бесплатный аккаунт на платформе <strong>Ely.by</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Блок 3: Кнопка скачивания -->
+        <div class="download-section">
+            <!-- ВСТАВЬ СВОЮ ССЫЛКУ ИЗ DROPBOX ВМЕСТО ЗНАКА # МЕЖДУ КАВЫЧЕК (не забудь dl=1 в конце) -->
+            <a href="#" class="download-btn">Скачать Лаунчер (200 МБ)</a>
+        </div>
     </div>
 
     <footer>
-        &copy; 2026 SVO Launcher. Создано Pidoras Entertainment. 
+        &copy; 2026 SVO Launcher. Создано Pidoras Entertainment. Все права защищены.
     </footer>
 
 </body>

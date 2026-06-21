@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVO Launcher - Идеальная сборка</title>
+    <!-- Подключаем красивый шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            background-color: #121417; /* Темный фон, как в лаунчере */
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        header {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(26, 28, 32, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: #3b82f6; /* Синий цвет акцента */
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #1f2329 0%, #121417 100%);
+        }
+        h1 {
+            font-size: 64px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        h1 span { color: #3b82f6; }
+        p.subtitle {
+            font-size: 20px;
+            color: #aaaaaa;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        .download-btn {
+            background-color: #3b82f6;
+            color: white;
+            text-decoration: none;
+            padding: 20px 40px;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 15px;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+        .download-btn:hover {
+            background-color: #2563eb;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
+        }
+        .features {
+            padding: 100px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            background-color: #1a1c20;
+        }
+        .feature-card {
+            background-color: #121417;
+            padding: 40px;
+            border-radius: 20px;
+            width: 300px;
+            text-align: center;
+            border: 1px solid #2b2d31;
+            transition: 0.3s;
+        }
+        .feature-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-10px);
+        }
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        .feature-card p {
+            color: #aaaaaa;
+            font-size: 15px;
+        }
+        .icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #0d0f12;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">SVO Launcher</div>
+    </header>
+
+    <section class="hero">
+        <h1>Сборка <span>твоей мечты</span></h1>
+        <p class="subtitle">Удобный лаунчер с автоматическими обновлениями, оптимизированной сборкой и кастомизацией. Начни играть в один клик.</p>
+        
+        <!-- ВАЖНО: Вставь ссылку на свой .exe файл вместо решетки # ниже -->
+        <a href="https://www.dropbox.com/scl/fi/q8rl77v4cidsnll9iyrvy/SVO.exe?rlkey=sokgz9ji2l2f2y7bko0ekvbrm&st=o9edphmi&dl=1" class="download-btn">СКАЧАТЬ ДЛЯ WINDOWS</a>
+        <p style="margin-top: 15px; color: #666; font-size: 14px;">Версия 1.0 | Вес: ~30 МБ</p>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <div class="icon">🚀</div>
+            <h3>Умные обновления</h3>
+            <p>Забудь про ручную установку модов. Лаунчер сам скачает и установит последнюю версию сборки при запуске.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🔐</div>
+            <h3>Ely.by Интеграция</h3>
+            <p>Удобный и безопасный вход в игру через аккаунт Ely.by. Твои данные надежно защищены.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🎨</div>
+            <h3>Кастомизация</h3>
+            <p>Меняй фоны, цвета текста и интерфейса прямо в настройках лаунчера под свое настроение.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 SVO Launcher. Создано для комфортной игры.</p>
+    </footer>
+
+</body>
+</html>
